@@ -1,0 +1,15 @@
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\BussinessObject\bin\Debug\net5.0\BussinessObject.deps.json
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\BussinessObject\bin\Debug\net5.0\BussinessObject.dll
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\BussinessObject\bin\Debug\net5.0\BussinessObject.pdb
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\BussinessObject\obj\Debug\net5.0\BussinessObject.csproj.AssemblyReference.cache
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\BussinessObject\obj\Debug\net5.0\BussinessObject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\BussinessObject\obj\Debug\net5.0\BussinessObject.AssemblyInfoInputs.cache
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\BussinessObject\obj\Debug\net5.0\BussinessObject.AssemblyInfo.cs
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\BussinessObject\obj\Debug\net5.0\BussinessObject.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\BussinessObject\obj\Debug\net5.0\BussinessObject.dll
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\BussinessObject\obj\Debug\net5.0\refint\BussinessObject.dll
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\BussinessObject\obj\Debug\net5.0\BussinessObject.pdb
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\BussinessObject\obj\Debug\net5.0\ref\BussinessObject.dll
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\BussinessObject\bin\Debug\net5.0\BussinessObject.runtimeconfig.json
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\BussinessObject\bin\Debug\net5.0\BussinessObject.runtimeconfig.dev.json
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\BussinessObject\obj\Debug\net5.0\BussinessObject.genruntimeconfig.cache
