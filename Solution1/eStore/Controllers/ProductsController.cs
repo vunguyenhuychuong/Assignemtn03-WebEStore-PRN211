@@ -9,7 +9,7 @@ using System.Linq;
 namespace eStore.Controllers
 {
     public class ProductsController : Controller
-    {   
+    {
         private readonly SalesManagementDBContext _context;
 
         public ProductsController(SalesManagementDBContext context)
@@ -17,13 +17,14 @@ namespace eStore.Controllers
             _context = context;
         }
 
-        // GET: ProductsController
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-
-        public async Task<IActionResult> Index(string searchString, decimal UnitPrice) 
+        // GET: Products
+        /*
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Products.ToListAsync());
+        }
+        */
+        public async Task<IActionResult> Index(string searchString, decimal UnitPrice)
         {
             var list = from p in _context.Products
                        select p;
@@ -34,9 +35,7 @@ namespace eStore.Controllers
             }
 
             return View(await list.ToListAsync());
-
         }
-
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -55,7 +54,13 @@ namespace eStore.Controllers
             return View(product);
         }
 
-        // GET: ProductsController/Create
+        // GET: Products/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Products/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -69,12 +74,6 @@ namespace eStore.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(product);
-        }
-
-        // GET: Products/Create
-        public IActionResult Create()
-        {
-            return View();
         }
 
         // GET: Products/Edit/5
@@ -93,40 +92,73 @@ namespace eStore.Controllers
             return View(product);
         }
 
-        // POST: ProductsController/Edit/5
+        // POST: Products/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductId,CategoryId,ProductName,Weight,UnitPrice,UnitsInStock")] Product product)
         {
-            try
+            if (id != product.ProductId)
             {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(product);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ProductExists(product.ProductId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(product);
         }
 
-        // GET: ProductsController/Delete/5
-        public ActionResult Delete(int id)
+        // GET: Products/Delete/5
+        public async Task<IActionResult> Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var product = await _context.Products
+                .FirstOrDefaultAsync(m => m.ProductId == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View(product);
         }
 
-        // POST: ProductsController/Delete/5
-        [HttpPost]
+        // POST: Products/Delete/5
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var product = await _context.Products.FindAsync(id);
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
-    }//end class
+
+        private bool ProductExists(int id)
+        {
+            return _context.Products.Any(e => e.ProductId == id);
+        }
+    }
 }
