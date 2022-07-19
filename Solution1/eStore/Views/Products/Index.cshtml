@@ -1,0 +1,22 @@
+﻿@model IEnumerable<BussinessObject.Models.Product>
+
+
+@{
+    ViewData["Title"] = "Product Management";
+}
+
+<h1>Product Management</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<form asp-controller="Products" asp-action="Index">
+    <p>
+        Search by Name: <input type="text" name="SearchString" />
+        Unit Price: <input type="number" name="UnitPrice" min="0" value="0" />
+        <input type="submit" value="Filter" /> <br />
+    </p>
+</form>
+

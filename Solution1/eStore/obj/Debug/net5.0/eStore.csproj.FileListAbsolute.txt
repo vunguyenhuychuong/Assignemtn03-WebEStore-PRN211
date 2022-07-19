@@ -155,3 +155,5 @@ C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\eStore\obj\Debug\net5.0\Razor
 C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\eStore\obj\Debug\net5.0\Razor\Views\Members\Create.cshtml.g.cs
 C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\eStore\obj\Debug\net5.0\Razor\Views\Members\Index.cshtml.g.cs
 C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\eStore\obj\Debug\net5.0\Razor\Views\Members\Delete.cshtml.g.cs
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\eStore\obj\Debug\net5.0\Razor\Views\Members\Details.cshtml.g.cs
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\eStore\obj\Debug\net5.0\Razor\Views\Members\Edit.cshtml.g.cs
