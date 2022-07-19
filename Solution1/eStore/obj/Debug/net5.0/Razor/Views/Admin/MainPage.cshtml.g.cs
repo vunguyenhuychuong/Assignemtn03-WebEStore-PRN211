@@ -27,7 +27,7 @@ using eStore.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9b5472a9ce844eb420a4cfd2d472257e7fcc6156", @"/Views/Admin/MainPage.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e6a7cd37460f953b9787e736e6c4fe42df2fc1ad", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"857a92c63f323eeb00d658ee0d22839421abac7f", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Admin_MainPage : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable

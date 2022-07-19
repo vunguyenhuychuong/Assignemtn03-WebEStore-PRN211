@@ -18,7 +18,6 @@ namespace BussinessObject.Models
         public string City { get; set; }
         public string Country { get; set; }
         public string Password { get; set; }
-        public string RoleName { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
     }
