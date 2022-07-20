@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using BussinessObject.Models;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
 
 namespace eStore.Controllers
 {
@@ -63,6 +64,7 @@ namespace eStore.Controllers
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
+                Console.WriteLine("Da save duoc");
                 Message = $"This email has already existed";
             }
             return View(member);

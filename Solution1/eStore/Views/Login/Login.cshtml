@@ -1,57 +1,45 @@
 ﻿
-<div class="text-center">
-    <h1 class="display-4">Login</h1>
-    <form asp-controller="Login" asp-action="CheckLogin">
-        Email <input type="text" name="email" />
-        Password <input type="text" name="password" />
-        <input type="submit" value="Login" />
+@*<div class="text-center">
+    <h1 class="display-4">login</h1>
+    <form asp-controller="login" asp-action="checklogin">
+        email <input type="text" name="email" />
+        password <input type="text" name="password" />
+        <input type="submit" value="login" />
     </form>
-</div>
-@*<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://kit.fontawesome.com/c0078485ae.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="~/css/login.css" />
-</head>
+</div>*@
 
-<body>
-    <img src="https://i.ibb.co/XWdPc2X/wave-01.png" alt="" class="wave">
-    <div class="container">
-      <div class="img">
-        <img src="https://i.ibb.co/JvXP8rW/phone.png" alt="">
-      </div>
-      <div class="login-container">
-        <form asp-controller="Login" class="form-login" asp-action="CheckLogin">
-          <img class="avatar" src="https://i.ibb.co/H4f3Hkv/profile.png" alt="">
-          <h2>Welcome</h2>
-          <div class="input-div one">
-            <div class="i">
-              <i class="fas fa-user"> </i>
-            </div>
-            <div>
-              <h5>Username</h5>
-              <input class="input" type="text" name="email">
-            </div>
-          </div>
-          <div class="input-div pass">
-            <div class="i">
-              <i class="fas fa-lock"> </i>
-            </div>
-            <div class="div">
-              <h5>Password</h5>
-              <input class="input" type="password" name="password">
-            </div>
-          </div>
-          <input type="submit" class="btn" value="Login">
-          <a href="#">Forgot Password?</a>
-        </form>
-      </div>
+<link rel="stylesheet" type="text/css" href="./css/login.css">
+<div class="wrapper">
+    <div class="title">
+       Login Form
     </div>
-    <script type="text/javascript" src="~/js/login.js"></script>
+    <form asp-controller="login" asp-action="checklogin">
+       <div class="field">
+          <input type="text" name="email" required>
+          <label>Email Address</label>
+       </div>
+       <div class="field">
+          <input type="password" name="password" required>
+          <label>Password</label>
+       </div>
+       <div class="content">
+          <div class="checkbox">
+             <input type="checkbox" id="remember-me">
+             <label for="remember-me">Remember me</label>
+          </div>
+          <div class="pass-link">
+             <a href="#">Forgot password?</a>
+          </div>
+       </div>
+       <div class="field">
+          <input type="submit" value="login">
+       </div>
+       <div class="signup-link">
+          Not a member? <a href="#">Signup now</a>
+       </div>
+    </form>
+ </div>
 
-  </body>
-  </html>*@
+
+ 
 

@@ -56,13 +56,16 @@ namespace DataAccess
                 {
                     db.Members.Add(new Member
                     {
+                        Email = member.Email,
+                        CompanyName = member.CompanyName,
                         City = member.City,
                         Country = member.Country,
-                        CompanyName = member.CompanyName,
-                        Email = member.Email,
                         Password = member.Password
                     });
+                    //db.Members.Add(member);
                     db.SaveChanges();
+
+                    Console.WriteLine("Da luu dc Ben DAO");
                 }
             }
             else
