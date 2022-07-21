@@ -27,12 +27,34 @@ namespace DataAccess
             }
         }
 
-        public static void Remove(OrderDetail orderDetail)
+        public OrderDetail GetDetailByOrderId(int orderId)
         {
+            OrderDetail orderDetail = null;
+            using(var db = new SalesManagementDBContext())
+            {
+                orderDetail = db.OrderDetails.Find(orderId);
+            }
+            return orderDetail;
+        }
+
+        public OrderDetail GetDetailByProductId(int productId)
+        {
+            OrderDetail orderDetail = null;
+            using(var db = new SalesManagementDBContext())
+            {
+                orderDetail= db.OrderDetails.Find(productId);
+            }
+            return orderDetail;
+        }
+       
+        public static void Remove(OrderDetail orderDetail)
+        {   
+            
             try
             {
                 using (var context = new SalesManagementDBContext())
-                {
+                {   
+                    //OrderDetail order = context.OrderDetails.
                     context.Remove(orderDetail);
                     context.SaveChanges();
                 }
@@ -56,6 +78,23 @@ namespace DataAccess
             catch (Exception e)
             {
                 throw new Exception(e.Message);
+            }
+        }
+
+        public static void InsertOrderDetail(Product product, Order order, int quantity)
+        {
+            try
+            {
+                OrderDetail detail = GenerateOrderDetail(product, order, quantity);
+                using (var context = new SalesManagementDBContext())
+                {
+                    context.Add(detail);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -90,21 +129,6 @@ namespace DataAccess
             return detail;
         }
 
-        public static void InsertOrderDetail(Product product, Order order, int quantity)
-        {
-            try
-            {
-                OrderDetail detail = GenerateOrderDetail(product, order, quantity);
-                using (var context = new SalesManagementDBContext())
-                {
-                    context.Add(detail);
-                    context.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+        
     }
 }

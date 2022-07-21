@@ -31,5 +31,8 @@ namespace DataAccess.Repository
 
         public void Update(Product product) => ProductDAO.Instance.UpdateProduct(product);
 
+        public void Search(string keyname, string keyword)
+            => ProductDAO.Instance.Search(keyname, keyword);
+
     }
 }

@@ -167,3 +167,9 @@ C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\eStore\obj\Debug\net5.0\Razor
 C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\eStore\obj\Debug\net5.0\Razor\Views\Orders\Edit.cshtml.g.cs
 C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\eStore\obj\Debug\net5.0\Razor\Views\Orders\ViewOrders.cshtml.g.cs
 C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\eStore\obj\Debug\net5.0\Razor\Views\Products\Edit.cshtml.g.cs
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\eStore\obj\Debug\net5.0\Razor\Views\OrderDetails\Create.cshtml.g.cs
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\eStore\obj\Debug\net5.0\Razor\Views\OrderDetails\Delete.cshtml.g.cs
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\eStore\obj\Debug\net5.0\Razor\Views\OrderDetails\Details.cshtml.g.cs
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\eStore\obj\Debug\net5.0\Razor\Views\OrderDetails\Edit.cshtml.g.cs
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\eStore\obj\Debug\net5.0\Razor\Views\OrderDetails\OrderDetails.cshtml.g.cs
+C:\Users\DELL\Desktop\ASS03\WebEStoreASP\Solution1\eStore\obj\Debug\net5.0\Razor\Views\User\Home.cshtml.g.cs

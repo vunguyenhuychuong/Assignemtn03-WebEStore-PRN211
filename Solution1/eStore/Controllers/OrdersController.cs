@@ -51,19 +51,20 @@ namespace eStore.Controllers
 
             var order = await _context.Orders
                 .Include(o => o.Member)
+                //.Include(o => o.MemberId == id)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
             if (order == null)
             {
                 return NotFound();
             }
             //return View(order);
-            return RedirectToAction("OrderDetails.html", order.OrderId);
+            return RedirectToAction("OrderDetails.cshtml", order.OrderId);
         }
 
         // GET: Orders/Create
         public IActionResult Create()
         {
-            ViewData["MemberId"] = new SelectList(_context.Members, "MemberId", "Email");
+            ViewData["MemberId"] = new SelectList(_context.Members, "MemberId", "MemberId");
             return View();
         }
 
@@ -80,7 +81,7 @@ namespace eStore.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(ViewOrders));
             }
-            ViewData["MemberId"] = new SelectList(_context.Members, "MemberId", "City", order.MemberId);
+            ViewData["MemberId"] = new SelectList(_context.Members, "MemberId", "MemberId", order.MemberId);
             return View(order);
         }
 
@@ -97,7 +98,7 @@ namespace eStore.Controllers
             {
                 return NotFound();
             }
-            ViewData["MemberId"] = new SelectList(_context.Members, "MemberId", "City", order.MemberId);
+            ViewData["MemberId"] = new SelectList(_context.Members, "MemberId", "MemberId", order.MemberId);
             return View(order);
         }
 
@@ -133,7 +134,7 @@ namespace eStore.Controllers
                 }
                 return RedirectToAction(nameof(ViewOrders));
             }
-            ViewData["MemberId"] = new SelectList(_context.Members, "MemberId", "City", order.MemberId);
+            ViewData["MemberId"] = new SelectList(_context.Members, "MemberId", "MemberId", order.MemberId);
             return View(order);
         }
 

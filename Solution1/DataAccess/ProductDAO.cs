@@ -122,5 +122,32 @@ namespace DataAccess
             }
             return list;
         }
+
+        public List<Product> Search(string keyname, string keyword)
+        {   
+            using (var db = new SalesManagementDBContext())
+            {
+                if (keyname == null)
+                {
+                    throw new Exception("Please input your type to search");
+                }
+                else if (keyword == null)
+                {
+                    throw new Exception("Please input your keyword to search");
+                }
+                else if (keyname.Equals("ProductName"))
+                {
+                    return db.Products.Where(a => a.ProductName.Contains(keyword)).ToList();
+                }
+                else if (keyname.Equals("UnitPrice"))
+                {
+                    return db.Products.Where(b => b.UnitPrice.Equals(keyname)).ToList();
+                }
+
+                return null;
+            }
+            
+            
+        }
     }
 }

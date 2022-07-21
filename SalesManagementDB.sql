@@ -75,7 +75,7 @@ GO
 
 INSERT INTO OrderDetail (OrderId, ProductId, UnitPrice, Quantity, Discount)
 values
-(16, 11, 40000, 8, 20)
+(1, 1, 40000, 8, 20)
 GO
 
 -- ----------------------------

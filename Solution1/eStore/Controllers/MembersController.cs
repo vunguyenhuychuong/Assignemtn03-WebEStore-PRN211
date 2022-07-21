@@ -64,7 +64,6 @@ namespace eStore.Controllers
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
-                Console.WriteLine("Da save duoc");
                 Message = $"This email has already existed";
             }
             return View(member);
