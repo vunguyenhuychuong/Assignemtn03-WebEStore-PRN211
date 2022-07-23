@@ -30,9 +30,9 @@ namespace DataAccess
         public List<Member> GetListMembers()
         {
             var list = new List<Member>();
-            using (var db = new SalesManagementDBContext())
+            using (var dbContext = new SalesManagementDBContext())
             {
-                list = db.Members.ToList();
+                list = dbContext.Members.ToList();
             }
             return list;
         }
