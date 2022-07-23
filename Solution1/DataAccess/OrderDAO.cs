@@ -51,6 +51,7 @@ namespace DataAccess
             return order;
         }
 
+        // Insert order 
         public void InsertOrder(Order order)
         {
             Order check = GetOrderById(order.OrderId);
