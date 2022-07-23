@@ -87,6 +87,7 @@ namespace DataAccess
             }
         }
 
+        // remove order
         public void RemoveOrder(int id)
         {
             Order check = GetOrderById(id);
