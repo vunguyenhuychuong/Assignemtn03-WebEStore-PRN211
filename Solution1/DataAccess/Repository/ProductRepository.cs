@@ -15,13 +15,13 @@ namespace DataAccess.Repository
         public Product GetOrderById(int id) => ProductDAO.Instance.GetProductById(id);
 
 
-        public Product GetProductById_Name(int id, string productName) 
-            => ProductDAO.Instance.GetProductsById_Name(id, productName);
+        public List<Product> getProductByName(string productName) => ProductDAO.getProductByName(productName);
 
 
+        public List<Product> getProductByUnitPrice(string unitPrice) => ProductDAO.getProductByUnitPrice(unitPrice);
 
-        public List<Product> GetProductsByUnitPrice_UnitInStock(int unitPrice, int unitslnStock)
-        => ProductDAO.Instance.GetProductsByUnitPrice_UnitInStock(unitPrice, unitslnStock);
+
+        public List<Product> getProductByUnitsSlnStock(string unitSlnStock) => ProductDAO.getProductByUnitsSlnStock(unitSlnStock);
 
         public void Insert(Product product) => ProductDAO.Instance.InsertProduct(product);
 
@@ -31,8 +31,10 @@ namespace DataAccess.Repository
 
         public void Update(Product product) => ProductDAO.Instance.UpdateProduct(product);
 
-        public void Search(string keyname, string keyword)
-            => ProductDAO.Instance.Search(keyname, keyword);
+
+        //public List<Product> GetFilteredProducts(string tag) => ProductDAO.Instance.GetFilteredProduct(tag);
+
+        public Product GetProductByID(int ProductID) => ProductDAO.Instance.GetProductByID(ProductID);
 
     }
 }

@@ -11,14 +11,14 @@
     <a asp-action="Create">Create New</a>
 </p>
 
-
-<form asp-controller="Products" asp-action="Index">
-    <p>
-        Search by Name: <input type="text" name="searchString" />
-        Unit Price: <input type="number" name="UnitPrice" min="0" value="0" />
-        <input type="submit" value="Search" /> <br />
-        
-    </p>
+<form asp-action="Search">
+    Search <input name="txtSearch" />
+    <select name="type">
+        <option value="1">Product name</option>
+        <option value="2">Unit price</option>
+        <option value="3">Unitsln Stock</option>
+    </select>
+    <input type="submit" name="btnSubmit" value="Search" />
 </form>
 
 <table class="table">

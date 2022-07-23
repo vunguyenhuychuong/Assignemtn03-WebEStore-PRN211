@@ -5803,11 +5803,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\ASS03\\WebEStoreASP\\Solution1\\BussinessObject\\BussinessObject.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\ASS03\\Assignemtn03-WebEStore-PRN211\\Solution1\\BussinessObject\\BussinessObject.csproj",
       "projectName": "BussinessObject",
-      "projectPath": "C:\\Users\\DELL\\Desktop\\ASS03\\WebEStoreASP\\Solution1\\BussinessObject\\BussinessObject.csproj",
+      "projectPath": "C:\\Users\\DELL\\Desktop\\ASS03\\Assignemtn03-WebEStore-PRN211\\Solution1\\BussinessObject\\BussinessObject.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\Desktop\\ASS03\\WebEStoreASP\\Solution1\\BussinessObject\\obj\\",
+      "outputPath": "C:\\Users\\DELL\\Desktop\\ASS03\\Assignemtn03-WebEStore-PRN211\\Solution1\\BussinessObject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

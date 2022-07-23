@@ -27,10 +27,10 @@
                 @Html.DisplayNameFor(model => model.Discount)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Order)
+                @Html.DisplayNameFor(model => model.OrderId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Product)
+                @Html.DisplayNameFor(model => model.ProductId)
             </th>
             <th></th>
         </tr>
@@ -51,19 +51,18 @@
                     @Html.DisplayFor(modelItem => item.Discount)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Order.OrderId)
+                    @Html.DisplayFor(modelItem => item.OrderId)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Product.ProductId)
+                    @Html.DisplayFor(modelItem => item.ProductId)
                 </td>
 
 
             <td>
                 @Html.ActionLink("Edit", "Edit", new { orderId = item.OrderId, productId = item.ProductId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.OrderId, productId = item.ProductId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.OrderId, productId = item.ProductId })
-
             </td>
+
         </tr>
         }
     </tbody>

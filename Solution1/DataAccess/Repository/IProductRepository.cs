@@ -14,7 +14,12 @@ namespace DataAccess.Repository
         public void Insert(Product product);
         public void Update(Product product);
         public void Remove(int id);
-        public Product GetProductById_Name(int id, string productName);
-        public List<Product> GetProductsByUnitPrice_UnitInStock(int unitPrice, int unitslnStock);
+
+        List<Product> getProductByName(string productName);
+        List<Product> getProductByUnitPrice(string unitPrice);
+
+        List<Product> getProductByUnitsSlnStock(string unitSlnStock);
+
+
     }
 }

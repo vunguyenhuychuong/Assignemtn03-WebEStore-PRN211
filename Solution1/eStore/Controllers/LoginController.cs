@@ -31,18 +31,18 @@ namespace eStore.Controllers
                 return RedirectToAction("Index", "Home");
             }
             Member loginUser = _context.Members.FirstOrDefault(m => m.Email == email && m.Password == password);
-            if (loginUser == null)
-            {
-
-                return RedirectToAction("Login", "Login");
-            }
-            else
+            if(loginUser.Email == email && loginUser.Password == password) 
             {
                 HttpContext.Session.SetString("role", "User");
                 HttpContext.Session.SetString("email", email);
                 HttpContext.Session.SetInt32("id", loginUser.MemberId);
-                return RedirectToAction("Home", "User");
+                return RedirectToAction("Index", "User");
             }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            
 
         }
     }

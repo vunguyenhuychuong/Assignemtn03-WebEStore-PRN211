@@ -47,6 +47,22 @@ namespace DataAccess
             return product;
         }
 
+        
+
+        public Product GetProductByID(int productID)
+        {
+            Product product = null;
+            try
+            {
+                using var context = new SalesManagementDBContext();
+                product = context.Products.SingleOrDefault(p => p.ProductId == productID);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            return product;
+        }
 
         public void InsertProduct(Product product)
         {
@@ -99,55 +115,102 @@ namespace DataAccess
             }
         }
 
-        public Product GetProductsById_Name(int id, string productName)
+        //public Product GetProductsById_Name(int id, string productName)
+        //{
+        //    Product product = null;
+        //    using (var db = new SalesManagementDBContext())
+        //    {
+        //        product = db.Products.Find(id);
+        //        if (!product.ProductName.Contains(productName))
+        //        {
+        //            product = null;
+        //        }
+        //    }
+        //    return product;
+        //}
+
+        //public List<Product> GetProductsByUnitPrice_UnitInStock(int unitPrice, int unitslnStock)
+        //{
+        //    List<Product> list = new List<Product>();
+        //    using (var db = new SalesManagementDBContext())
+        //    {
+        //        list = db.Products.Where(pro => pro.UnitPrice == unitPrice && pro.UnitslnStock == unitslnStock).ToList();
+        //    }
+        //    return list;
+        //}
+
+        //public List<Product> GetFilteredProduct(string tag)
+        //{
+        //    List<Product> filtered = new List<Product>();
+        //    foreach(Product product in GetListProducts())
+        //    {
+        //        int add = 0;
+        //        if (product.ProductId.ToString().Contains(tag))
+        //            add = 1;
+        //        if (product.ProductName.Contains(tag))
+        //            add = 1;
+        //        if (product.UnitPrice.ToString().Contains(tag))
+        //            add = 1;
+        //        if (product.UnitslnStock.ToString().Contains(tag))
+        //            add = 1;
+        //        if (add == 1)
+        //            filtered.Add(product);
+        //    }
+        //    return filtered;
+        //}
+
+        public static List<Product> getProductByUnitPrice(string unitPrice)
         {
-            Product product = null;
-            using (var db = new SalesManagementDBContext())
+            List<Product> listPro = null;
+            try
             {
-                product = db.Products.Find(id);
-                if (!product.ProductName.Equals(productName))
+                using (var dbContext = new SalesManagementDBContext())
                 {
-                    product = null;
+                    listPro = dbContext.Products.Where(product => product.UnitPrice.ToString().Contains(unitPrice.ToLower())).ToList();
                 }
+
             }
-            return product;
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return listPro;
         }
 
-        public List<Product> GetProductsByUnitPrice_UnitInStock(int unitPrice, int unitslnStock)
+        public static List<Product> getProductByUnitsSlnStock(string unitSlnStock)
         {
-            List<Product> list = new List<Product>();
-            using (var db = new SalesManagementDBContext())
+            List<Product> listPro = null;
+            try
             {
-                list = db.Products.Where(pro => pro.UnitPrice == unitPrice && pro.UnitslnStock == unitslnStock).ToList();
+                using (var dbContext = new SalesManagementDBContext())
+                {
+                    listPro = dbContext.Products.Where(product => product.UnitslnStock.ToString().Contains(unitSlnStock.ToLower())).ToList();
+                }
+
             }
-            return list;
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return listPro;
         }
 
-        public List<Product> Search(string keyname, string keyword)
-        {   
-            using (var db = new SalesManagementDBContext())
+        public static List<Product> getProductByName(string productName)
+        {
+            List<Product> listPro = null;
+            try
             {
-                if (keyname == null)
+                using (var context = new SalesManagementDBContext())
                 {
-                    throw new Exception("Please input your type to search");
-                }
-                else if (keyword == null)
-                {
-                    throw new Exception("Please input your keyword to search");
-                }
-                else if (keyname.Equals("ProductName"))
-                {
-                    return db.Products.Where(a => a.ProductName.Contains(keyword)).ToList();
-                }
-                else if (keyname.Equals("UnitPrice"))
-                {
-                    return db.Products.Where(b => b.UnitPrice.Equals(keyname)).ToList();
+                    listPro = context.Products.Where(pro => pro.ProductName.ToLower().Contains(productName.ToLower())).ToList();
                 }
 
-                return null;
             }
-            
-            
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return listPro;
         }
     }
 }

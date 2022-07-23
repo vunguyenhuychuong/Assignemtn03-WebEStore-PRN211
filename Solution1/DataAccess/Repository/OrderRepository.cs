@@ -17,7 +17,7 @@ namespace DataAccess.Repository
 
         public void Update(Order order) => OrderDAO.Instance.UpdateOrder(order);
 
-        public void Remove(int id) => OrderDAO.Instance.RemoveOrder(id);
+        public void Remove(int OrderId) => OrderDAO.Instance.RemoveOrder(OrderId);
 
         public List<Order> GetOrdersByDate(DateTime start, DateTime end) => OrderDAO.Instance.GetOrdersByDate(start, end);
     }

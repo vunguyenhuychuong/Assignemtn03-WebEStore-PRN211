@@ -9,13 +9,13 @@ namespace DataAccess.Repository
 {
     public interface IOrderDetailRepository
     {
-        //public List<OrderDetail> GetOrderDetailsByOrder(int orderId);
+        public List<OrderDetail> GetOrderDetails(int orderId);
 
         //public OrderDetail GetDetailById(int orderId);
 
         //public OrderDetail GetDetailByProduct(int productId);
 
-        //public void Insert(OrderDetail orderDetail);
+        public void Insert(OrderDetail orderDetail);
 
         //public void Update(OrderDetail orderDetail);
 

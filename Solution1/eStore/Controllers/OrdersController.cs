@@ -6,6 +6,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Http;
 
 namespace eStore.Controllers
 {
@@ -36,7 +37,7 @@ namespace eStore.Controllers
             }
             catch
             {
-
+                
             }
             return View(await saleManagementContext.ToListAsync());
         }
@@ -138,20 +139,61 @@ namespace eStore.Controllers
             return View(order);
         }
 
+        //GET: Products/Delete/5
+        public ActionResult Delete(int id)
+        {
+            var order = orderRepository.GetOrderById(id);
+            if(order == null)
+            {
+                return NotFound();
+            }
+            orderRepository.Remove(id);
+            return RedirectToAction(nameof(ViewOrders));
+        }
+        //public ActionResult Delete(int id)
+        //{
+        //    var order = orderRepository.GetOrderById(id);
+        //    if (order == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    orderRepository.Remove(id);
+        //    return RedirectToAction(nameof(ViewOrders));
+        //}
+
         // POST: Orders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id, IFormCollection collection)
         {
-            var order = await _context.Orders.FindAsync(id);
-            _context.Orders.Remove(order);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(ViewOrders));
+            //var order = await _context.Orders.FindAsync(id);
+            //_context.Orders.Remove(order);
+            //await _context.SaveChangesAsync();
+            //return RedirectToAction(nameof(ViewOrders));
+            try
+            {
+                return RedirectToAction(nameof(ViewOrders));
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         private bool OrderExists(int id)
         {
             return _context.Orders.Any(e => e.OrderId == id);
         }
+        //public ActionResult Delete(int id, IFormCollection collection)
+        //{
+        //    try
+        //    {
+        //        return RedirectToAction(nameof(ViewOrders));
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
     }
 }

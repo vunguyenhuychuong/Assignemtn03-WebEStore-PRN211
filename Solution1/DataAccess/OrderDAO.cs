@@ -71,6 +71,7 @@ namespace DataAccess
         public void UpdateOrder(Order order)
         {
             Order check = GetOrderById(order.OrderId);
+            
             if (check != null)
             {
                 using (var db = new SalesManagementDBContext())
@@ -99,7 +100,7 @@ namespace DataAccess
             }
             else
             {
-                throw new Exception("Order does not exist!");
+                throw new Exception("Product does not exist!");
             }
         }
 

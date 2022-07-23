@@ -27,6 +27,11 @@ namespace DataAccess
             }
         }
 
+        internal List<OrderDetail> GetOrderDetailList(int orderId)
+        {
+            throw new NotImplementedException();
+        }
+
         public OrderDetail GetDetailByOrderId(int orderId)
         {
             OrderDetail orderDetail = null;
@@ -81,20 +86,56 @@ namespace DataAccess
             }
         }
 
-        public static void InsertOrderDetail(Product product, Order order, int quantity)
+        //public static void InsertOrderDetail(Product product, Order order, int quantity)
+        //{
+        //    try
+        //    {
+        //        OrderDetail detail = GenerateOrderDetail(product, order, quantity);
+        //        using (var context = new SalesManagementDBContext())
+        //        {
+        //            context.Add(detail);
+        //            context.SaveChanges();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.Message);
+        //    }
+        //}
+
+        public OrderDetail GetOrderDetailByID(int OrderID, int ProductID)
+        {
+            OrderDetail mem = null;
+            try
+            {
+                using var context = new SalesManagementDBContext();
+                mem = context.OrderDetails.SingleOrDefault(c => c.OrderId == OrderID && c.ProductId == ProductID);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            return mem;
+        }
+
+        public void InsertOrderDetail(OrderDetail orderDetail)
         {
             try
             {
-                OrderDetail detail = GenerateOrderDetail(product, order, quantity);
-                using (var context = new SalesManagementDBContext())
+                OrderDetail mem = GetOrderDetailByID(orderDetail.OrderId, orderDetail.ProductId);
+                if(mem == null)
                 {
-                    context.Add(detail);
+                    using var context = new SalesManagementDBContext();
+                    context.OrderDetails.Add(orderDetail);
                     context.SaveChanges();
                 }
-            }
-            catch (Exception ex)
+                else
+                {
+                    throw new Exception("The orderDetail is alredy exist");
+                }
+            }catch(Exception e)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(e.Message);
             }
         }
 

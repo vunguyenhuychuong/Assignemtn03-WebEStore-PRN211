@@ -17,7 +17,7 @@ namespace DataAccess.Repository
 
         public void Update(Order order);
 
-        public void Remove(int id);
+        public void Remove(int OrderId);
 
         public List<Order> GetOrdersByDate(DateTime start, DateTime end);
     }

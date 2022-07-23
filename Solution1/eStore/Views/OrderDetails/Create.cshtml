@@ -1,11 +1,12 @@
 ﻿@model BussinessObject.Models.OrderDetail
+@using eStore.Models
 
 @{
     ViewData["Title"] = "Create";
 }
 
 <h1>Create</h1>
-
+<h2>OrderId :  @ViewData["OrderId"]</h2>
 <h4>OrderDetail</h4>
 <hr />
 <div class="row">
@@ -43,7 +44,8 @@
 </div>
 
 <div>
-    <a asp-action="OrderDetails" asp-route="@Model.OrderId">Back to List</a>
+   @*@Html.ActionLink("Edit", "Edit", new { orderId = Model.OrderId, productId = Model.ProductId }) |*@
+    <a asp-action="OrderDetails" asp-route-id="@Model.OrderId">Back to List</a>
 </div>
 
 @section Scripts {

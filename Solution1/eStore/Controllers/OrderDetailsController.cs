@@ -4,15 +4,19 @@ using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
-
+using BussinessObject.Models;
+using DataAccess.Repository;
 namespace eStore.Controllers
 {
     public class OrderDetailsController : Controller
     {
         private readonly SalesManagementDBContext _context;
+        IOrderDetailRepository orderDetailRepository;
+
         public OrderDetailsController(SalesManagementDBContext context)
         {
             _context = context;
+            orderDetailRepository = new OrderDetailRepository();
         }
 
         public IActionResult Index()
@@ -23,8 +27,8 @@ namespace eStore.Controllers
         // GET: OrderDetails
         public async Task<IActionResult> OrderDetails(int id)
         {
-            //var fStoreContext = _context.OrderDetails.Include(o => o.Order).Include(o => o.Product);
-            var fStoreContext = _context.OrderDetails.Where(d => d.OrderId == id).OrderBy(d => d.Order.OrderDate);
+            var fStoreContext = _context.OrderDetails.Include(o => o.Order).Include(o => o.Product);
+            //var fStoreContext = _context.OrderDetails.Where(d => d.OrderId == id).OrderBy(d => d.Order.OrderDate);
             ViewData["OrderId"] = id;
             foreach (var detail in fStoreContext)
             {
@@ -73,7 +77,7 @@ namespace eStore.Controllers
             {
                 _context.Add(orderDetail);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(OrderDetails));
+                return RedirectToAction(nameof(OrderDetails), new {id = orderDetail.OrderId});
             }
             ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderDetail.OrderId);
             ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", orderDetail.ProductId);
@@ -156,8 +160,10 @@ namespace eStore.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var orderDetail = await _context.OrderDetails.FindAsync(id);
+            //var orderDetail = this._context.OrderDetails.Find(id);
             _context.OrderDetails.Remove(orderDetail);
             await _context.SaveChangesAsync();
+            //this._context.SaveChanges();
             return RedirectToAction(nameof(OrderDetails));
         }
 

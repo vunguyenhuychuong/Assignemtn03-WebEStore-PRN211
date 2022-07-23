@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e4DXykQA5h/w4gyZ6Hjui9q78TrKTwYeUpVWCsrA3r6aFig5VzR+d5FsJJzcm0qkUiTr6gB1DJimytPvBMj7nA==",
+  "dgSpecHash": "KRHEW/qNNgCPEcMGVCkO9ieGq1cHAtMqQ86KTmdukjDhcpsPIcwmMWkBQK5jyJolge8dhS6DM1NcuSjsXHDteg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Desktop\\ASS03\\WebEStoreASP\\Solution1\\eStore\\eStore.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Desktop\\ASS03\\Assignemtn03-WebEStore-PRN211\\Solution1\\eStore\\eStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

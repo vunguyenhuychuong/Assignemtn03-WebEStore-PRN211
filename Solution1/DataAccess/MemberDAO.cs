@@ -97,16 +97,16 @@ namespace DataAccess
             }
         }
 
-        public Member Login(string Email, string Password)
+        public Member Login(string email, string password)
         {
             Member login = null;
             using (var db = new SalesManagementDBContext())
             {
-                login = db.Members.Where(member => member.Email == Email && member.Password == Password).SingleOrDefault();
+                login = db.Members.Where(member => member.Email == email && member.Password == password).SingleOrDefault();
             }
             return login;
         }
-
+    
         public void RemoveMember(int id)
         {
             Member check = GetMemberById(id);
