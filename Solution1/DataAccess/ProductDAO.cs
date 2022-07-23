@@ -29,12 +29,12 @@ namespace DataAccess
 
         public List<Product> GetListProducts()
         {
-            var list = new List<Product>();
+            var listProducts = new List<Product>();
             using (var db = new SalesManagementDBContext())
             {
-                list = db.Products.ToList();
+                listProducts = db.Products.ToList();
             }
-            return list;
+            return listProducts;
         }
 
         public Product GetProductById(int id)
