@@ -105,6 +105,7 @@ namespace DataAccess
             }
         }
 
+        // get order by date
         public List<Order> GetOrdersByDate(DateTime startDate, DateTime endDate)
         {
             using (var db = new SalesManagementDBContext())
