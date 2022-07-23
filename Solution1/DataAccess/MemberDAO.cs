@@ -65,7 +65,7 @@ namespace DataAccess
                     //db.Members.Add(member);
                     db.SaveChanges();
 
-                    Console.WriteLine("Da luu dc Ben DAO");
+                    Console.WriteLine("Save successfully");
                 }
             }
             else
