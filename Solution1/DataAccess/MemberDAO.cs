@@ -99,12 +99,12 @@ namespace DataAccess
 
         public Member Login(string email, string password)
         {
-            Member login = null;
+            Member loginMember = null;
             using (var db = new SalesManagementDBContext())
             {
-                login = db.Members.Where(member => member.Email == email && member.Password == password).SingleOrDefault();
+                loginMember = db.Members.Where(member => member.Email == email && member.Password == password).SingleOrDefault();
             }
-            return login;
+            return loginMember;
         }
     
         public void RemoveMember(int id)
