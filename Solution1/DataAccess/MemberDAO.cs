@@ -109,12 +109,12 @@ namespace DataAccess
     
         public void RemoveMember(int id)
         {
-            Member check = GetMemberById(id);
-            if (check != null)
+            Member checkMember = GetMemberById(id);
+            if (checkMember != null)
             {
                 using (var db = new SalesManagementDBContext())
                 {
-                    db.Members.Remove(check);
+                    db.Members.Remove(checkMember);
                     db.SaveChanges();
                 }
             }
