@@ -66,8 +66,8 @@ namespace DataAccess
 
         public void InsertProduct(Product product)
         {
-            Product check = GetProductById(product.ProductId);
-            if (check == null)
+            Product checkProduct = GetProductById(product.ProductId);
+            if (checkProduct == null)
             {
                 using (var db = new SalesManagementDBContext())
                 {
