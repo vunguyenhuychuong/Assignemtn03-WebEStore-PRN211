@@ -13,8 +13,6 @@
     <div class="col-md-4">
         <form asp-action="Edit" mehtod="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @*<input type="hidden" asp-for="OrderId"/>
-            <input type="hidden" asp-for="ProductId" />*@
             <div class="form-group">
                 <label asp-for="OrderId" class="control-label"></label>
                 <input asp-for="OrderId" class="form-control" />
@@ -41,12 +39,12 @@
                 <span asp-validation-for="Discount" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" asp-action="orderDetails" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="orderdetails" asp-route-id="@Model.OrderId">back to list</a>
+    <a asp-action="orderdetails" asp-route-id="@Model.OrderId" asp-route-id="@Model.ProductId">back to list</a>
 </div>

@@ -4,6 +4,7 @@ using BussinessObject.Models;
 using Microsoft.AspNetCore.Http;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace eStore.Controllers
 {
@@ -15,6 +16,11 @@ namespace eStore.Controllers
             int? id = HttpContext.Session.GetInt32("id");
             var member = db.Members.SingleOrDefault(m => m.MemberId == id);
             return member;
+        }
+
+        public UserController(SalesManagementDBContext context)
+        {
+            db = context;
         }
         // GET: UserController
         public ActionResult Index()
@@ -37,6 +43,28 @@ namespace eStore.Controllers
         public ActionResult Create()
         {
             return View();
+        }
+
+        //Get OrderDetail
+        public async Task<IActionResult> OrderDetails(int id)
+        {
+            //var fStoreContext = _context.OrderDetails.Include(o => o.Order).Include(o => o.Product);
+            var fStoreContext = db.OrderDetails.Where(d => d.OrderId == id).OrderBy(d => d.Order.OrderDate);
+            ViewData["OrderId"] = id;
+            foreach (var detail in fStoreContext)
+            {
+                detail.Product = db.Products.FindAsync(detail.ProductId).Result;
+                detail.Order = db.Orders.FindAsync(detail.OrderId).Result;
+            }
+            return View(await fStoreContext.ToListAsync());
+        }
+
+        //Get Order
+        public IActionResult OrderHistory()
+        {
+            var orders = db.Orders.Where(o => o.MemberId == LoginUser().MemberId).OrderByDescending(o => o.OrderDate);
+
+            return View(orders);
         }
 
         // POST: UserController/Create
@@ -64,9 +92,11 @@ namespace eStore.Controllers
             }
             return View(member);
         }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MemberId,Email,CompanyName,City,Country,Password,Status")] Member member)
+        public async Task<IActionResult> Edit(int id, [Bind("MemberId,Email,CompanyName,City,Country,Password")] Member member)
         {
             if (id != member.MemberId)
             {

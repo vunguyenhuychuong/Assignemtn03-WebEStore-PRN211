@@ -37,14 +37,13 @@
                 <span asp-validation-for="Discount" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" asp-route-id="@Model.OrderId"/>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-   @*@Html.ActionLink("Edit", "Edit", new { orderId = Model.OrderId, productId = Model.ProductId }) |*@
     <a asp-action="OrderDetails" asp-route-id="@Model.OrderId">Back to List</a>
 </div>
 
