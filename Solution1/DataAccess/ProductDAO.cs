@@ -115,29 +115,17 @@ namespace DataAccess
             }
         }
 
-        //public Product GetProductsById_Name(int id, string productName)
-        //{
-        //    Product product = null;
-        //    using (var db = new SalesManagementDBContext())
-        //    {
-        //        product = db.Products.Find(id);
-        //        if (!product.ProductName.Contains(productName))
-        //        {
-        //            product = null;
-        //        }
-        //    }
-        //    return product;
-        //}
 
-        //public List<Product> GetProductsByUnitPrice_UnitInStock(int unitPrice, int unitslnStock)
-        //{
-        //    List<Product> list = new List<Product>();
-        //    using (var db = new SalesManagementDBContext())
-        //    {
-        //        list = db.Products.Where(pro => pro.UnitPrice == unitPrice && pro.UnitslnStock == unitslnStock).ToList();
-        //    }
-        //    return list;
-        //}
+
+        public List<Product> GetProductsByUnitPrice_UnitInStock(int unitPrice, int unitslnStock)
+        {
+            List<Product> list = new List<Product>();
+            using (var db = new SalesManagementDBContext())
+            {
+                list = db.Products.Where(pro => pro.UnitPrice == unitPrice && pro.UnitslnStock == unitslnStock).ToList();
+            }
+            return list;
+        }
 
         //public List<Product> GetFilteredProduct(string tag)
         //{
