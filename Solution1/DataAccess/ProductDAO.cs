@@ -127,25 +127,25 @@ namespace DataAccess
             return list;
         }
 
-        //public List<Product> GetFilteredProduct(string tag)
-        //{
-        //    List<Product> filtered = new List<Product>();
-        //    foreach(Product product in GetListProducts())
-        //    {
-        //        int add = 0;
-        //        if (product.ProductId.ToString().Contains(tag))
-        //            add = 1;
-        //        if (product.ProductName.Contains(tag))
-        //            add = 1;
-        //        if (product.UnitPrice.ToString().Contains(tag))
-        //            add = 1;
-        //        if (product.UnitslnStock.ToString().Contains(tag))
-        //            add = 1;
-        //        if (add == 1)
-        //            filtered.Add(product);
-        //    }
-        //    return filtered;
-        //}
+        public List<Product> GetFilteredProduct(string tag)
+        {
+            List<Product> filtered = new List<Product>();
+            foreach (Product product in GetListProducts())
+            {
+                int add = 0;
+                if (product.ProductId.ToString().Contains(tag))
+                    add = 1;
+                if (product.ProductName.Contains(tag))
+                    add = 1;
+                if (product.UnitPrice.ToString().Contains(tag))
+                    add = 1;
+                if (product.UnitslnStock.ToString().Contains(tag))
+                    add = 1;
+                if (add == 1)
+                    filtered.Add(product);
+            }
+            return filtered;
+        }
 
         public static List<Product> getProductByUnitPrice(string unitPrice)
         {
