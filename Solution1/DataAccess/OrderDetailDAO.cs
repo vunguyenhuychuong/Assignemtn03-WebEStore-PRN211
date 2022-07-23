@@ -86,22 +86,22 @@ namespace DataAccess
             }
         }
 
-        //public static void InsertOrderDetail(Product product, Order order, int quantity)
-        //{
-        //    try
-        //    {
-        //        OrderDetail detail = GenerateOrderDetail(product, order, quantity);
-        //        using (var context = new SalesManagementDBContext())
-        //        {
-        //            context.Add(detail);
-        //            context.SaveChanges();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception(ex.Message);
-        //    }
-        //}
+        public static void InsertOrderDetail(Product product, Order order, int quantity)
+        {
+            try
+            {
+                OrderDetail detail = GenerateOrderDetail(product, order, quantity);
+                using (var context = new SalesManagementDBContext())
+                {
+                    context.Add(detail);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
         public OrderDetail GetOrderDetailByID(int OrderID, int ProductID)
         {
