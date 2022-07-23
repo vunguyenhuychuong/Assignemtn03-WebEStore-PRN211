@@ -118,3 +118,5 @@ SELECT * FROM [Product]
 
 SELECT * FROM [dbo].[Order] where MemberId = 15
 SELECT * FROM [dbo].[Order] where OrderId = 18
+
+DELETE * FROM OrderDetail WhERE OrderId=1
