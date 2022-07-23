@@ -39,12 +39,12 @@ namespace DataAccess
 
         public Member GetMemberById(int id)
         {
-            Member member = null;
+            Member member1 = null;
             using (var db = new SalesManagementDBContext())
             {
-                member = db.Members.Find(id);
+                member1 = db.Members.Find(id);
             }
-            return member;
+            return member1;
         }
 
         public void InsertMember(Member member)
